@@ -1,0 +1,125 @@
+1. install git
+2. Config git
+    -> git config --global user.name "KanTipp" -> config name
+    -> git config --global user.email kantippayamontri@gmail.com -> config email
+    -> git config --global init.default branch main -> config default branch is main
+    -> git config --help -> open command and description
+3. Initialize git repository
+    -> git init
+4. Check status of our repository
+    -> git status
+        -> show current branch
+        -> show untracked file
+        -> show 
+5. tracked a file -> tracked file = git can know if the file is changed
+    -> git add (filename)
+    -> check with git status -> look at untracked file -> the file that git add is dissapear
+6. untrack file from tracked file
+    -> git rm --cached (filename)
+    -> check with git status -> tracked file will appear
+7. create .gitignore file -> make git know what file or folder should ignore
+    -> touch .gitignore -> file start with . = hidden file -> use ls -a to see hidden file
+        -> try to add these in .gitignore file
+            # ignore all.txt files
+            *.txt 
+    -> check with git status -> .txt file will dissappear from untracked file
+8. add all file in tracked 
+    -> git add . or git add --A or git --all
+    -> check with git status 
+9. commit the file -> snapshot the file to history box
+    -> git commit -m "first comming - committing all files to the repository"
+    -> git status -> no longer any file to commit
+10. try to modified the file index.htm
+    -> git status modified: index.htm
+11. git diff -> show the different file between new modified(green) and former modified(red)
+    -> git add index.htm -> the files go to staging phrase -> waiting for committing
+12. stage of the file 
+    -> working file 
+    -> staging -> waiting for commit
+    -> commit
+13. if you don't want the file to commit (staging -> working file)
+    -> git restore --staged (filename) -> filename into working file
+14. If you want to change working file -> staging -> commit
+    -> git commit -a -m "(text)"
+15. remove a file 
+    -> solution 1 : git rm (filename)
+    -> solution 2 : direct delete form the directory
+
+    -> git status -> found deleted file -> file that distracking
+16. restore file
+    -> git restore (filename) -> restore that file from lasted commit
+17. change name of file
+    -> git mv (oldname) (new name)
+    -> git commit -m "sdfasdfsaf"
+18. check branch commit history
+    -> git log
+    -> git log --oneline -> show abbrevation of git log
+19. if you want to change the commit messange
+    -> git commit -m "the text" --amend
+    -> git log --oneline -> check the message is changed
+20. check different in each commit
+    -> git log -p
+21. want?
+    -> git help (command) -> ex, git help log
+22. jump back the code to the previous commit
+    -> git reset (commit id) -> ex, git reset 5d819fca62c6c92d29d4473f21b8d56ca03949b3
+23. modified the previous commit (research more...)
+    -> git rebase -i --root
+24. create a new branch
+    -> git branch (name of branch)
+25. check all branch exist
+    -> git branch
+26. switch to other branch
+    -> git switch (name of branch)
+27. merge other branch back to main
+    -> git switch master
+    -> git merge -m "message for merge" (name of branch)
+28. delete the branch
+    -> git branch -d (name of the branch)
+29. create branch and switch to new branch
+    -> git switch -c "name of branch"
+30. if the text have git conflict
+    -> git status -> see the conflicted file
+    -> go to the file and choolse the delete -> HEAD = the original data
+                                                (name of branch) = data from the other branch
+    -> you choose to delete the HEAD or data from other file
+
+GITHUB -> could git system
+1. create account for Github
+2. new repository -> type github.new in browser
+3. fill -> repository name
+        -> public
+        -> create repository
+4. follwing the suggested command -> you have already create repository
+    -> git remote add origin https://github.com/kantippayamontri/gitTutorial.git
+    -> git branch -M main
+    -> git push -u origin main
+5. push all branch to github
+    -> git push --all
+6. Create Issues
+    in Issues tab
+    -> Assign -> me
+    -> label -> bug
+    -> Submit new issue
+7. Create pull request
+    -> Edit file index.htm
+    -> Create a new branch for this commit and start a pull request.
+    -> title : Update index.htm - we should include the Philippines as one of the country that we get sugar from
+    -> create pull request
+
+    -> in the left side -> developments -> choose the Issues that we create 
+    -> merge pull request
+    -> confirm merge
+
+    -> Issue -> closed -> the issue that we make is appear in closed
+8. Create Release 
+    -> Code tab
+    -> in the left side -> Create a new Release
+    -> tag name : release
+    -> title : v.1.0.0
+    -> publish release
+    -> we have v1 available -> anyone can download the sourcecode from the website
+9. get the chnages from the could to the local computer
+    -> git fetch -> download all remote history from each branch
+    -> git merge -> merge to the local repository
+    -> git pull = get fetch + git merge (2 in 1)
